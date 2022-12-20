@@ -1,0 +1,31 @@
+<?php include('../index.php'); ?>
+<body>
+  <main>
+      <div class="container p-4 px-2">
+          <div class="row">
+              <h1>Pedidos</h1>
+              <div class="col-md-12">
+                  <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                          <th>Nombre</th>
+                          <th>Cantidad</th>
+                          <th>Subtotal</th>
+                          <th>Opciones</th>
+                      </tr>
+                      </thead>
+    <?php
+    $cliente = 1061807588;
+    $response = json_decode(file_get_contents('http://localhost/awayhub1/api/pedido/pedido.read.php?cliente='. $cliente), true);
+    if($response['statuscode'] == 200){
+        foreach($response['items'] as $item) {
+            include('../layout/pedido/pedido.php');
+        }
+    }
+    ?>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </main>
+</body>

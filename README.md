@@ -4,5 +4,5 @@ Esta aplicación está diseñada para el control de asignación de domicilios re
 
 La lógica de la programación que se implementa para este proyecto se presenta en el siguiente diagrama de clases.
 
-![Digrama de clases](./img/class_diagram.png)
+![Digrama de clases](./img/class_diagram.jpg)
 

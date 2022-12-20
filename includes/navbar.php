@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link <?= $page == 'index.php' ? 'active':'' ?>" aria-current="page" href="../index.php">Home</a>
+          <a class="nav-link <?= $page == 'home.php' ? 'active':'' ?>" aria-current="page" href="../pages/home.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $page == 'pedido.create.php' ? 'active':'' ?>" href="../pages/pedido.create.php">Pedido</a>
+          <a class="nav-link <?= $page == 'pedido.php' ? 'active':'' ?>" href="../pages/pedido.php">Pedido</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $page == 'domicilio.create.php' ? 'active':'' ?>" href="../pages/domicilio.create.php">Domicilio</a>
+          <a class="nav-link <?= $page == 'domicilio.php' ? 'active':'' ?>" href="../pages/domicilio.php">Domicilio</a>
         </li>
       </ul>
     </div>
