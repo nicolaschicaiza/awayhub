@@ -32,6 +32,7 @@ if(isset($nombre)){
                     "precio" => $producto['precio']
                 );
                 $nuevo = false;
+                
                 break;
             }else{
                 $nuevo = true;
@@ -45,10 +46,14 @@ if(isset($nombre)){
             "nombre" => $nombre,
             "precio" => $precio
         );
+       
         $api->add($item);
+       
     }else{
         $api->update($item);
     }
+    $_SESSION['message'] = 'PRODUCTO CREADO';
+    $_SESSION['message_type'] = 'success';
     header('Location:../../pages/home.php', '');
 }else{
     $api->error('Error al llamar la API');

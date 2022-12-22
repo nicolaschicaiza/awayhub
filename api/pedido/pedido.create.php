@@ -44,6 +44,8 @@ if(isset($id_producto)){
     } else {
         $api->update($item);
     }
+    $_SESSION['message'] = 'Pedido Creado';
+    $_SESSION['message_type'] = 'success';
     header('Location:../../pages/pedido.php', '');
 } else {
     $api->error('Error al llamar la API');

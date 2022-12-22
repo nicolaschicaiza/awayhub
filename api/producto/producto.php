@@ -22,7 +22,9 @@ class Producto extends DB{
   public function createProducto($producto){
      $query = $this->connect()->prepare('INSERT INTO producto(nombre,precio) VALUES (:nombre, :precio)');
      $query->execute(['nombre' => $producto['nombre'], 'precio' => $producto['precio']]);
+    
      return $query;
+     
   }
 
   public function updateProducto($producto){
@@ -34,6 +36,7 @@ class Producto extends DB{
   public function deleteProducto($id){
     $query = $this->connect()->prepare('DELETE FROM producto WHERE id_producto=:id_producto');
     $query->execute(['id_producto' => $id]);
+    
     return $query;
   }
 }
