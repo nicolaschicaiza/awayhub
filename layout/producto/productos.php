@@ -4,15 +4,8 @@
             <td><?php echo $item['nombre']; ?></td>
             <td>$<?php echo $item['precio']; ?> COP</td>
             <td class="d-flex">
-              <a href="../api/pedido/pedido.create.php?producto=<?php echo $item['id'] ?>&precio=<?php echo $item['precio']?>&cliente=<?php echo '1061807588' ?>" class="btn btn-primary me-2">
+              <a href="../api/pedido/pedido.create.php?producto=<?php echo $item['id'] ?>&precio=<?php echo $item['precio']?>&cliente=<?php echo '1' ?>" class="btn btn-primary me-2">
                 <i class="fa fa-cart-shopping"></i>
-<<<<<<< HEAD
-              </a>              
-
-              <a href="../../pages/domicilio.php" class="btn btn-warning d-flex justify-content-center align-items-center">
-                  Comprar
-              </a>
-=======
               </a>
               <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $item['id'] ?>">
                     <i class="fa fa-marker"></i>
@@ -20,7 +13,6 @@
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?php echo $item['id'] ?>">
                     <i class="fa fa-trash-alt"></i>
               </button>
->>>>>>> 63a844f754686cdbb5ee8813c8b105a6781dde54
             </td>
           </tr>
         </tbody>

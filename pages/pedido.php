@@ -3,7 +3,7 @@
   <main>
       <div class="container p-4 px-2">
           <div class="row">
-              <h1>Pedidos estoy aqui</h1>
+              <h1>Pedidos</h1>
               <div class="col-md-12">
                   <table class="table table-bordered">
                       <thead>
