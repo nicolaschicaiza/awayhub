@@ -7,7 +7,7 @@
                     <td class="d-flex">
                           <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $item['id'] ?>">
                                 <i class="fa fa-marker"></i>
-                          </button>
+                          </button>                          
                           <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?php echo $item['id'] ?>">
                                 <i class="fa fa-trash-alt"></i>
                           </button>

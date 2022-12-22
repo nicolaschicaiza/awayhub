@@ -53,6 +53,13 @@ class ApiProducto {
         $res = $producto->createProducto($item);
         $this->exito("Nuevo producto registrado");
     }
+
+    function update($item){
+        $producto = new Producto();
+
+        $res = $producto->updateProducto($item);
+        $this->exito("Producto actualizado satisfactoriamente");
+    }
     function error($mensaje){
         echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>';
     }
