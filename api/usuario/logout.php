@@ -1,8 +1,5 @@
 <?php
-    include_once 'user_session.php';
-
-    $userSession = new UserSession();
-    $userSession->closeSession();
+    $_SESSION['user'] = "end";
 
     header("location: ../../index.php");
 

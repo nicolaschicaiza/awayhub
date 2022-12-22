@@ -46,7 +46,7 @@ if(isset($id_producto)){
     }
     $_SESSION['message'] = 'Pedido Creado';
     $_SESSION['message_type'] = 'success';
-    header('Location:../../pages/pedido.php', '');
+    header("Location:../../pages/pedido.php?user=$user");
 } else {
     $api->error('Error al llamar la API');
 }

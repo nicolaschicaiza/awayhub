@@ -4,7 +4,7 @@
             <td><?php echo $item['nombre']; ?></td>
             <td>$<?php echo $item['precio']; ?> COP</td>
             <td class="d-flex">
-              <a href="../api/pedido/pedido.create.php?producto=<?php echo $item['id'] ?>&precio=<?php echo $item['precio']?>&cliente=<?php echo '1' ?>" class="btn btn-primary me-2">
+              <a href="../api/pedido/pedido.create.php?producto=<?php echo $item['id'] ?>&precio=<?php echo $item['precio']?>" class="btn btn-primary me-2">
                 <i class="fa fa-cart-shopping"></i>
               </a>
               <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $item['id'] ?>">

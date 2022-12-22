@@ -1,5 +1,5 @@
 <?php
-include_once 'user.php';
+include 'user.php';
 
 class ApiUser
 {
@@ -29,7 +29,6 @@ class ApiUser
     }
   }
 
-
   public function set($item)
   {
     $user = new User();
@@ -45,12 +44,35 @@ class ApiUser
     }
   }
 
+  function getAll()
+  {
+    $user = new User();
+    $users = array();
+
+    $res = $user->getUsers();
+
+    if ($res->rowCount()) {
+      while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+        $item = array(
+          'id' => $row['id'],
+          'nombre' => $row['nombre'],
+          'username' => $row['username'],
+        );
+        array_push($users, $item);
+      }
+
+      echo json_encode(['statuscode' => 200, 'items' => $users]);
+    } else {
+      echo json_encode(['statuscode' => 404, 'response' => 'Nose puede procesar la solicitud *getAll*']);
+    }
+  }
+
   public function get($item)
   {
     $user = new User();
     $users = array();
 
-    $res = $user->setUser($item);
+    $res = $user->getByUser($item);
 
     if ($res->rowcount()) {
       foreach ($res as $currentuser) {  //se hace el barrido
@@ -63,5 +85,25 @@ class ApiUser
       }
     }
     return $users;
+  }
+
+  function error($mensaje)
+  {
+    echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>';
+  }
+
+  function exito($mensaje)
+  {
+    echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>';
+  }
+
+  function printJSON($array)
+  {
+    echo '<code>' . json_encode($array) . '</code>';
+  }
+
+  function getError()
+  {
+    return $this->error;
   }
 }

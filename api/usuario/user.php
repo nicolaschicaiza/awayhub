@@ -24,10 +24,16 @@ class User extends DB
         return $query;
     }
 
-    public function getNombre($user) //para retornar el nombre
+    public function getByUser($user) //para retornar el nombre
     {
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE username = :user');
         $query->execute(['user' => $user]);
         return $query;
     }
+
+    public function getUsers(){
+        $query = $this->connect()->prepare('SELECT * FROM usuarios');
+        $query->execute([]);
+        return $query;
+    } 
 }

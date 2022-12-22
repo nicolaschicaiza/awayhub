@@ -8,18 +8,19 @@
         <div class="col-md-11">
           <h1>Productos disponibles</h1>
         </div>
-        
+
         <div class="col-md-1">
           <a class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#editModal">
             <i class="fa-solid fa-plus"></i>
           </a>
         </div>
         <?php if (isset($_SESSION['message'])) { ?>
-      <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show col-md-6" role="alert">
-        <?= $_SESSION['message']?>
-        <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      <?php session_unset(); } ?>
+          <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show col-md-6" role="alert">
+            <?= $_SESSION['message'] ?>
+            <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <?php session_unset();
+        } ?>
 
         <br> <br>
         <div class="col-md-12">
@@ -32,6 +33,8 @@
               </tr>
             </thead>
             <?php
+            session_start();
+            $id = $_SESSION['id'];
             $response = json_decode(file_get_contents('http://localhost/awayhub/api/producto/producto.read.php'), true);
             if ($response['statuscode'] == 200) {
               foreach ($response['items'] as $item) {
@@ -39,7 +42,6 @@
               }
             }
             ?>
-
           </table>
         </div>
       </div>
@@ -60,7 +62,7 @@
           <div class="form-group">
             <label for="cantidad" class="col-form-label">Nombre del producto:</label>
             <input type="text" name="nombre" value="<?php $item['nombre']; ?>" class="form-control" required>
-            
+
           </div> <br>
           &nbsp;
           <div class="form-group">
