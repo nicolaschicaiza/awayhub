@@ -1,5 +1,5 @@
 <?php
-    $_SESSION['user'] = "end";
+    $_SESSION['end'] = true;
 
     header("location: ../../index.php");
 
