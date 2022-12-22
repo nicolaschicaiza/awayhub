@@ -26,7 +26,14 @@ class Producto extends DB{
   }
 
   public function updateProducto($producto){
-    $query = $this->connect()->prepare('UPDATE producto SET nombre=:nombre, preciol=:precio WHERE id=:id');
+      $query = $this->connect()->prepare('UPDATE producto SET nombre=:nombre, precio=:precio WHERE id_producto=:id_producto');
+      $query->execute(['nombre' => $producto['nombre'], 'precio' => $producto['precio'], 'id_producto' => $producto['id']]);
+      return $query;
+  }
+
+  public function deleteProducto($id){
+    $query = $this->connect()->prepare('DELETE FROM producto WHERE id_producto=:id_producto');
+    $query->execute(['id_producto' => $id]);
     return $query;
-}
+  }
 }

@@ -17,12 +17,12 @@ if(isset($id)){
           "id_cliente" => $pedido['id_cliente'],
           "id_producto" => $pedido['id_producto'],
           "cantidad" => $cantidad,
-          "subtotal" => $pedido['subtotal'],
+          "subtotal" => $pedido['subtotal']/$pedido['cantidad'] * $cantidad,
       );
     }
   }
   $api->update($item);
-  // header('Location:../../pages/pedido.php', '');
+  header('Location:../../pages/pedido.php', '');
 } else {
   $api->error('Error al llamar la API');
 }
