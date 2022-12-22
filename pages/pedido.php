@@ -1,4 +1,4 @@
-<?php include('../index.php'); ?>
+<?php include('../layout.php'); ?>
 <body>
   <main>
       <div class="container p-4 px-2">

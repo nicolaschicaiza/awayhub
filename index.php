@@ -1,13 +1,7 @@
-<?php include('lib/db.php'); ?>
-<?php include('includes/header.php'); ?>
-<?php include('includes/navbar.php'); ?>
-<?php include('includes/footer.php'); ?>
-
 <?php
 
 include_once 'api/usuario/user.api.php';
 include_once 'api/usuario/user_session.php';
-include_once 'api/usuario/user.php';
 
 $userSession = new UserSession();   //CREAR OBJETO USER SESSION
 $api = new ApiUser(); //PARA MANEJAR USUARIO ACTUAL

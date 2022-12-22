@@ -1,4 +1,4 @@
-<?php include('../index.php'); ?>
+<?php include('../layout.php'); ?>
 
 <body>
   <main>
@@ -21,7 +21,6 @@
       </div>
       <?php session_unset(); } ?>
 
-     
         <br> <br>
         <div class="col-md-12">
           <table class="table table-bordered">
@@ -40,7 +39,6 @@
               }
             }
             ?>
-       
 
           </table>
         </div>

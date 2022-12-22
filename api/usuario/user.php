@@ -1,11 +1,12 @@
 <?php
+include_once "lib/db.php";
 
-include_once '../../lib/db.php';
-
-class User extends DB{
- 
-    public $nombre;
-    public $username;
+class User extends DB
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
 
     public function userExists($user)
     {
@@ -14,7 +15,6 @@ class User extends DB{
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE username = :user AND password = :pass');
         $query->execute(['user' => $user['username'], 'pass' => $user['password']]);
         return $query;
-
     }
 
     public function setUser($user)
@@ -31,5 +31,3 @@ class User extends DB{
         return $query;
     }
 }
-
-?>
