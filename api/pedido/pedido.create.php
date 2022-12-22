@@ -6,19 +6,19 @@ $response = json_decode(file_get_contents('http://localhost/awayhub/api/pedido/p
 
 $api = new ApiPedido();
 $id_producto = $_GET['producto'];
-$id_cliente = $_GET['cliente'];
 $precio = $_GET['precio'];
 $nuevo = false;
 $error = '';
 $item = array();
+$user = $_SESSION['id'];
 
 if(isset($id_producto)){
     foreach ($response['items'] as $pedido){
-        if($pedido['id_cliente'] == $id_cliente){
+        if($pedido['id_cliente'] == $user){
             if($pedido['id_producto'] == $id_producto){
                 $pedido['cantidad'] = $pedido['cantidad'] + 1;
                 $item = array(
-                    "id" => $pedido['id'],
+                    
                     "id_cliente" => $pedido['id_cliente'],
                     "id_producto" => $pedido['id_producto'],
                     "cantidad" => $pedido['cantidad'],
@@ -34,8 +34,7 @@ if(isset($id_producto)){
     if($nuevo){
         $cantidad = 1;
         $item = array(
-            "id" => $id_pedido,
-            "id_cliente" => $id_cliente,
+            "id_cliente" => $user,
             "id_producto" => $id_producto,
             "cantidad" => $cantidad,
             "subtotal" => $precio * $cantidad,
@@ -46,6 +45,7 @@ if(isset($id_producto)){
     }
     $_SESSION['message'] = 'Pedido Creado';
     $_SESSION['message_type'] = 'success';
+    $_SESSION['id'] = $_SESSION['id'];
     header("Location:../../pages/pedido.php?user=$user");
 } else {
     $api->error('Error al llamar la API');

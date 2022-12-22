@@ -54,6 +54,7 @@ if(isset($nombre)){
     }
     $_SESSION['message'] = 'PRODUCTO CREADO';
     $_SESSION['message_type'] = 'success';
+    $_SESSION['id'] = $_SESSION['id'];
     header('Location:../../pages/home.php', '');
 }else{
     $api->error('Error al llamar la API');
