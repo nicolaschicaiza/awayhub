@@ -11,6 +11,7 @@ $nombre = array();
 if (isset($_SESSION['end'])) {
   session_unset();
   session_destroy();
+  include('pages/login.php');
 } else {
 
   if (isset($_SESSION['user'])) {
