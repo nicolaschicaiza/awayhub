@@ -11,10 +11,6 @@ $nuevo = false;
 $error = '';
 $item = array();
 $user = $_SESSION['id'];
-<<<<<<< HEAD
-=======
-echo $user;
->>>>>>> 02ea39c (Actualizacion base de datos)
 
 if(isset($id_producto)){
     foreach ($response['items'] as $pedido){
