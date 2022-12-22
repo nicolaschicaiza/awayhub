@@ -32,8 +32,8 @@ class Pedido extends DB{
   }
 
   public function createPedido($pedido){
-     $query = $this->connect()->prepare('INSERT INTO pedido(id_pedido, id_cliente, id_producto, cantidad, subtotal) VALUES (:id, :id_cliente, :id_producto, :cantidad, :subtotal)');
-     $query->execute(['id' => $pedido['id'], 'id_cliente' => $pedido['id_cliente'], 'id_producto' => $pedido['id_producto'], 'cantidad' => $pedido['cantidad'], 'subtotal' => $pedido['subtotal']]);
+     $query = $this->connect()->prepare('INSERT INTO pedido(id_cliente, id_producto, cantidad, subtotal) VALUES (:id_cliente, :id_producto, :cantidad, :subtotal)');
+     $query->execute(['id_cliente' => $pedido['id_cliente'], 'id_producto' => $pedido['id_producto'], 'cantidad' => $pedido['cantidad'], 'subtotal' => $pedido['subtotal']]);
      return $query;
   }
 
@@ -41,5 +41,11 @@ class Pedido extends DB{
       $query = $this->connect()->prepare('UPDATE pedido SET cantidad=:cantidad, subtotal=:subtotal WHERE id_producto=:id_producto');
       $query->execute(['cantidad' => $pedido['cantidad'], 'subtotal' => $pedido['subtotal'], 'id_producto' => $pedido['id_producto']]);
       return $query;
+  }
+
+  public function deletePedido($id){
+    $query = $this->connect()->prepare('DELETE FROM pedido WHERE id_pedido=:id_pedido');
+    $query->execute(['id_pedido' => $id]);
+    return $query;
   }
 }

@@ -61,7 +61,7 @@ class ApiPedido{
             while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
 
                 $item = array(
-                    "id_pedido" => $row['id_pedido'],
+                    "id" => $row['id_pedido'],
                     "id_cliente" => $row['id_cliente'],
                     "cantidad" => $row['cantidad'],
                     "subtotal" => $row['subtotal'],
@@ -89,6 +89,13 @@ class ApiPedido{
 
         $res = $pedido->updatePedido($item);
         $this->exito("Pedido actulizado satisfactoriamente");
+    }
+
+    function delete($id){
+        $pedido = new Pedido();
+
+        $res = $pedido->deletePedido($id);
+        $this->exito("Pedido eliminado correctamente");
     }
 
     function error($mensaje){

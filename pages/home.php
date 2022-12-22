@@ -14,10 +14,10 @@
                       </tr>
                       </thead>
     <?php
-    $response = json_decode(file_get_contents('http://localhost/awayhub1/api/producto/producto.read.php'), true);
+    $response = json_decode(file_get_contents('http://localhost/awayhub/api/producto/producto.read.php'), true);
     if($response['statuscode'] == 200){
       foreach($response['items'] as $item){
-        include('../layout/productos.php');
+        include('../layout/producto/productos.php');
       }
     }
     ?>

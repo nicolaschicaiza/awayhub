@@ -16,7 +16,7 @@
                       </thead>
     <?php
     $cliente = 1061807588;
-    $response = json_decode(file_get_contents('http://localhost/awayhub1/api/pedido/pedido.read.php?cliente='. $cliente), true);
+    $response = json_decode(file_get_contents('http://localhost/awayhub/api/pedido/pedido.read.php?cliente='. $cliente), true);
     if($response['statuscode'] == 200){
         foreach($response['items'] as $item) {
             include('../layout/pedido/pedido.php');

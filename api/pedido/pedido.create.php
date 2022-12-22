@@ -2,24 +2,20 @@
 include_once 'pedido.api.php';
 
 
-$response = json_decode(file_get_contents('http://localhost/awayhub1/api/pedido/pedido.read.php'), true);
+$response = json_decode(file_get_contents('http://localhost/awayhub/api/pedido/pedido.read.php'), true);
 
 $api = new ApiPedido();
-$id_pedido = count($response['items'])+1;
 $id_producto = $_GET['producto'];
 $id_cliente = $_GET['cliente'];
 $precio = $_GET['precio'];
 $nuevo = false;
 $error = '';
 $item = array();
-echo $id_producto;
 
 if(isset($id_producto)){
     foreach ($response['items'] as $pedido){
-        echo $pedido['id_producto'];
         if($pedido['id_cliente'] == $id_cliente){
             if($pedido['id_producto'] == $id_producto){
-                echo "actualizar";
                 $pedido['cantidad'] = $pedido['cantidad'] + 1;
                 $item = array(
                     "id" => $pedido['id'],
@@ -31,7 +27,6 @@ if(isset($id_producto)){
                 $nuevo = false;
                 break;
             } else {
-                echo "nuevo";
                 $nuevo = true;
             }
         }
@@ -49,7 +44,7 @@ if(isset($id_producto)){
     } else {
         $api->update($item);
     }
-    header('Location:../../pages/pedido.php', $_GET['precio']);
+    header('Location:../../pages/pedido.php', '');
 } else {
     $api->error('Error al llamar la API');
 }
