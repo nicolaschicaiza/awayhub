@@ -20,8 +20,20 @@ class Producto extends DB{
   }
 
   public function createProducto($producto){
-     $query = $this->connect()->prepare('INSERT INTO producto(id_producto,nombre,precio) VALUES (:id, :nombre, :precio)');
-     $query->execute(['id' => $producto['id_producto'], 'nombre' => $producto['nombre'], 'precio' => $producto['precio']]);
+     $query = $this->connect()->prepare('INSERT INTO producto(nombre,precio) VALUES (:nombre, :precio)');
+     $query->execute(['nombre' => $producto['nombre'], 'precio' => $producto['precio']]);
      return $query;
+  }
+
+  public function updateProducto($producto){
+      $query = $this->connect()->prepare('UPDATE producto SET nombre=:nombre, precio=:precio WHERE id_producto=:id_producto');
+      $query->execute(['nombre' => $producto['nombre'], 'precio' => $producto['precio'], 'id_producto' => $producto['id']]);
+      return $query;
+  }
+
+  public function deleteProducto($id){
+    $query = $this->connect()->prepare('DELETE FROM producto WHERE id_producto=:id_producto');
+    $query->execute(['id_producto' => $id]);
+    return $query;
   }
 }

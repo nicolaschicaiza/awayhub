@@ -30,8 +30,8 @@
                                 <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
                                 <div class="modal-body d-flex justify-content-center align-items-center">
                                       <div class="form-group">
-                                            <label for="cantidad" class="col-form-label">Telefono:</label>
-                                            <input type="number" name="cantidad" class="form-control" value="<?php echo $item['cantidad']; ?>" required="true">
+                                            <label for="cantidad" class="col-form-label">Cantidad:</label>
+                                            <input name="cantidad" type="number" min="1" max="50" step="1" class="form-control" value="<?php echo $item['cantidad']; ?>" required="true">
                                       </div>
                                 </div>
                                 <div class="modal-footer">
